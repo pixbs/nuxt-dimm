@@ -1,7 +1,8 @@
 <template>
 	<main>
 		<section>
-			<ContentDoc />
+			<h1>Services</h1>
+			<p>List of services</p>
 		</section>
 	</main>
 </template>

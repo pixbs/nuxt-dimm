@@ -5,6 +5,8 @@ export default defineNuxtConfig({
 		'@nuxt/eslint',
 		'@nuxtjs/tailwindcss',
 		'@nuxtjs/seo',
+		'@nuxtjs/web-vitals',
+		'@nuxt/fonts',
 	],
 	components: {
 		dirs: [
@@ -29,13 +31,15 @@ export default defineNuxtConfig({
 	routeRules: {
 		'/': { prerender: true },
 	},
-	eslint: {
-		config: {
-			stylistic: {
-				indent: 'tab',
-				semi: false,
-				quotes: 'single',
+	fonts: {
+		families: [
+			{
+				name: 'Onest',
+				provider: 'google',
 			},
+		],
+		experimental: {
+			processCSSVariables: true,
 		},
 	},
 })
