@@ -11,6 +11,12 @@ export default defineNuxtConfig({
 		'@nuxt/icon',
 	],
 
+	routeRules: {
+		// Remove prerendering for '/'
+		'/': { prerender: true },
+		'/de/**': { prerender: true },
+	},
+
 	components: {
 		dirs: [
 			{
@@ -28,15 +34,6 @@ export default defineNuxtConfig({
 
 	content: {
 		documentDriven: true,
-		experimental: {
-			search: {
-				indexed: true,
-			},
-		},
-	},
-
-	routeRules: {
-		'/': { prerender: true },
 	},
 
 	fonts: {
@@ -72,7 +69,7 @@ export default defineNuxtConfig({
 		},
 		lazy: true,
 		langDir: 'lang',
-		strategy: 'prefix',
+		strategy: 'prefix_and_default',
 		rootRedirect: 'en',
 	},
 
