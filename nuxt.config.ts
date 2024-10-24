@@ -7,7 +7,10 @@ export default defineNuxtConfig({
 		'@nuxtjs/seo',
 		'@nuxtjs/web-vitals',
 		'@nuxt/fonts',
+		'@nuxtjs/i18n',
+		'@nuxt/icon',
 	],
+
 	components: {
 		dirs: [
 			{
@@ -16,10 +19,13 @@ export default defineNuxtConfig({
 			},
 		],
 	},
+
 	devtools: { enabled: true },
+
 	app: {
 		pageTransition: { name: 'page', mode: 'out-in' },
 	},
+
 	content: {
 		documentDriven: true,
 		experimental: {
@@ -28,9 +34,11 @@ export default defineNuxtConfig({
 			},
 		},
 	},
+
 	routeRules: {
 		'/': { prerender: true },
 	},
+
 	fonts: {
 		families: [
 			{
@@ -42,4 +50,44 @@ export default defineNuxtConfig({
 			processCSSVariables: true,
 		},
 	},
+
+	i18n: {
+		defaultLocale: 'en',
+		locales: [
+			{
+				code: 'en',
+				language: 'en-US',
+				files: ['./en/main.yaml'],
+			},
+			{
+				code: 'de',
+				language: 'de-DE',
+				files: ['./de/main.yaml'],
+			},
+		],
+		detectBrowserLanguage: {
+			useCookie: true,
+			cookieKey: 'i18n_redirected',
+			redirectOn: 'root',
+		},
+		lazy: true,
+		langDir: 'lang',
+		strategy: 'prefix',
+		rootRedirect: 'en',
+	},
+
+	icon: {
+		customCollections: [
+			{
+				prefix: 'base',
+				dir: 'assets/base/',
+			},
+			{
+				prefix: 'logo',
+				dir: 'assets/logo/',
+			},
+		],
+	},
+
+	compatibilityDate: '2024-10-24',
 })

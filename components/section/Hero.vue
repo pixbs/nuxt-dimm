@@ -23,6 +23,5 @@
 				</button>
 			</div>
 		</div>
-		<Tiles />
 	</section>
 </template>

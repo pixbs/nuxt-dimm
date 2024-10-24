@@ -2,10 +2,7 @@
 	<main>
 		<SectionHero>
 			<template #title>
-				<span>Hey, I&apos;m Dimm!</span>
-				<span class="opacity-60"> Software Engineer</span>
-				<span> and </span>
-				<span class="opacity-60">Product Designer</span>
+				{{ $t('title') }}
 			</template>
 			<template #description>
 				<p>
@@ -25,14 +22,20 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	white-space: pre-line;
 }
 
 div,
 section,
 header,
 footer,
-nav {
+nav,
+main {
 	@apply flex flex-col;
+}
+
+main {
+	min-height: calc(round(100vh, var(--tile-size)));
 }
 
 section {
@@ -46,6 +49,8 @@ section {
 	--foreground: white;
 	--brand: #f22f57;
 	font-family: 'Onest', sans-serif;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 @media (min-width: 768px) {
@@ -58,6 +63,10 @@ section {
 	:root {
 		--tile-size: 5.5555556vw;
 	}
+}
+
+::-webkit-scrollbar {
+	display: none;
 }
 
 ::selection {
@@ -104,8 +113,10 @@ p {
 	@apply text-quarter;
 }
 
-button {
-	@apply uppercase;
+button,
+.button {
+	@apply flex h-tile cursor-pointer flex-row items-center justify-center gap-quarter rounded-full border border-foreground bg-background uppercase hover:border-backgroundSecondary;
+	@apply transition duration-300 ease-out;
 }
 
 input[type='text'],
